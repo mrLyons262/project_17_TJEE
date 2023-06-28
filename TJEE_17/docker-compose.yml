@@ -1,0 +1,12 @@
+services:
+  payara:
+    container_name: payara
+    image: payara/server-full:5.2022.5
+    ports:
+      - 4848:4848
+      - 8080:8080
+  mongoDB:
+    container_name: mongoDB
+    image: mongo
+    ports:
+      - 8000:27017

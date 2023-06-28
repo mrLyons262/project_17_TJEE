@@ -1,0 +1,60 @@
+<mat-toolbar class="toolbar header">
+  <span>Piotr Michta</span>
+  <span>WAT - Project</span>
+  <span>1.0.0</span>
+</mat-toolbar>
+<div class="form-container">
+  <form class="form">
+    <div class="form-inner-container">
+      <mat-form-field class="field-width">
+        <mat-label>Input value</mat-label>
+        <input type="text" matInput [formControl]="inputFC">
+        <mat-error *ngIf="inputFC.hasError('required')">
+          Value is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <button type="button" mat-raised-button [disabled]="inputFC.hasError('required')" (click)="generateHash()">
+        Generate
+      </button>
+      <button type="button" mat-raised-button [disabled]="!generatedHash || hashAlreadySaved" (click)="saveHash()">
+        Save
+      </button>
+    </div>
+    <div class="form-inner-container">
+      <span class="hash-text">Generated hash: <strong>{{generatedHash}}</strong></span>
+    </div>
+  </form>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef> Created date </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hash">
+        <th mat-header-cell *matHeaderCellDef> Hash </th>
+        <td mat-cell *matCellDef="let element"> {{element.hashValue}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button type="button" mat-raised-button (click)="deleteHash(element.hashValue)">
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+<mat-toolbar class="toolbar">
+  <span>© 2023 Piotr Michta</span>
+</mat-toolbar>

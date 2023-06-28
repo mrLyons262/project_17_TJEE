@@ -1,0 +1,10 @@
+{
+    "/WCY20KC1S0_Michta_hash-generator": {
+        "target": "http://localhost:8080/",
+        "secure": false
+    },
+    "/WCY20KC1S0_Michta_data-provider": {
+        "target": "http://localhost:8080/",
+        "secure": false
+    }
+}

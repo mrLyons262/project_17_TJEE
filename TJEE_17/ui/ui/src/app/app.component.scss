@@ -1,0 +1,39 @@
+.toolbar {
+    height: 7vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15%;
+}
+
+.header {
+    margin-bottom: 2vh;
+}
+
+.form-container {
+    min-height: 84vh;
+    width: 60%;
+    margin: 0 auto;
+
+    .form {
+        width: 100%;
+
+        .form-inner-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            .field-width {
+                width: 300px;
+            }
+        }
+    }
+}
+
+.table-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    table {
+        width: 100%;
+    }
+}
